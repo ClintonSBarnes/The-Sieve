@@ -12,9 +12,9 @@ int menuSelection;
 
     Sieve sieve = menuSelection switch
     {
-        1 => new Sieve(IsEven),
-        2 => new Sieve(IsMultipleOfTen),
-        3 => new Sieve(IsPositive)
+        1 => new Sieve(bool (int number) => number % 2 == 0),
+        2 => new Sieve(bool (int number) => number % 10 == 0),
+        3 => new Sieve(bool(int number) => number > 0),
     };
 
 while (true)
@@ -24,11 +24,11 @@ while (true)
 
     Console.WriteLine(userNumberTested + "-" + sieve.IsGood(userNumberTested));
 }
-//
 
-bool IsEven(int number) => number % 2 == 0;
-bool IsMultipleOfTen(int number) => number % 10 == 0;
-bool IsPositive(int number) => number > 0;
+//below are the pureviously used delegates that have been replaced by the lambdas on lines 15-17.
+//bool IsEven(int number) => number % 2 == 0;
+//bool IsMultipleOfTen(int number) => number % 10 == 0;
+//bool IsPositive(int number) => number > 0;
 
 
 
